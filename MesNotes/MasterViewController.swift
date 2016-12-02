@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class MasterViewController: UITableViewController {
-    private static let SERVER_IP = "192.168.1.77:9080"
+    private static let SERVER_IP = "192.168.1.85:9080"
     var _subjectManager:SubjectManager = SubjectManager(withRealm:try! Realm())
     var detailViewController: DetailViewController? = nil
     var _notificationToken:NotificationToken!
@@ -68,7 +68,7 @@ class MasterViewController: UITableViewController {
     
     func prepareRealm() {
         let serverUrl = URL(string: "http://\(MasterViewController.SERVER_IP)")
-        let credentials = SyncCredentials.usernamePassword(username: "maxime.britto@gmail.com", password: "p")
+        let credentials = SyncCredentials.usernamePassword(username: "john@doe.com", password: "imac")
         SyncUser.logIn(with: credentials, server: serverUrl!) {
             user, error in
             if let user = user {
@@ -161,17 +161,17 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        if proposedDestinationIndexPath.row == 1 {
-            return IndexPath(row: 6, section: 0)
-        } else if proposedDestinationIndexPath.row == 6 {
-            return IndexPath(row: 1, section: 0)
-        }else {
+//        if proposedDestinationIndexPath.row == 1 {
+//            return IndexPath(row: 2, section: 0)
+//        } else if proposedDestinationIndexPath.row == 2 {
+//            return IndexPath(row: 1, section: 0)
+//        } else {
             return proposedDestinationIndexPath
-        }
+//        }
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return false
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

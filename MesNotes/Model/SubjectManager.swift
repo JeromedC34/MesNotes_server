@@ -19,7 +19,7 @@ class SubjectManager {
     
     init(withRealm realm:Realm) {
         _realm = realm
-        _subjectList = _realm.objects(Subject.self).sorted(byProperty: "title", ascending: false)
+        _subjectList = _realm.objects(Subject.self).sorted(byProperty: "title", ascending: true)
     }
     
     func getIndex(forSubject subject:Subject) -> Int? {

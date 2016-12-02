@@ -7,6 +7,7 @@ target 'MesNotes' do
 
   # Pods for MesNotes
   pod "RealmSwift"
+  pod 'Alamofire', '~> 4.0'
 
   target 'MesNotesTests' do
     inherit! :search_paths
